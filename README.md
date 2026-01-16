@@ -4,7 +4,7 @@ Aplikasi Photobooth berbasis web yang terinspirasi oleh tren *Korean Self-Photo 
 
 Aplikasi ini berjalan di browser dan memungkinkan pengguna mengambil foto, memilih layout, memberikan efek filter *film grain*, dan mengunduh hasilnya secara instan.
 
-![Project Preview](https://github.com/isnainoo/photobooth-app/blob/main/photobooth-1768536614171.jpg)
+![Project Preview](https://github.com/isnainoo/photobooth-app/blob/main/photobooth-1768536614171.)
 
 ## ✨ Fitur Utama
 
@@ -34,8 +34,8 @@ Ikuti langkah ini untuk menjalankan proyek di komputer lokal Anda:
 
 1.  **Clone Repositori**
     ```bash
-    git clone [https://github.com/isnainoo/elegant-photobooth.git](https://github.com/isnainoo/elegant-photobooth.git)
-    cd elegant-photobooth
+    git clone [https://github.com/isnainoo/photobooth-app.git](https://github.com/isnainoo/photobooth-app.git)
+    cd photobooth-app
     ```
 
 2.  **Install Dependencies**
@@ -80,8 +80,4 @@ Pilih Layout Frame di bagian bawah (Double Strip atau Grid).
 
 Klik "LIHAT HASIL", lalu Download atau Share.
 
-Tips: Gunakan remote bluetooth smartphone untuk pengalaman photobooth yang lebih otentik!
-
-👨‍💻 Author
-Isna Choiron Nasikhin
-GitHub: @isnainoo
+Tips: Gunakan remote bluetooth smartphone untuk pengalaman photobooth yang lebih otentik
