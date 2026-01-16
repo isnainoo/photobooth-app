@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Photobooth</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>PHOTOBOOTH by @isnainoo_</h1>
+        
+        <div class="main-content">
+            <div class="camera-section">
+                <div class="video-wrapper">
+                    <video id="videoElement" autoplay playsinline></video>
+                </div>
+                <div class="controls">
+                    <button id="captureBtn" class="btn btn-primary"><i class="fas fa-camera"></i> AMBIL FOTO</button>
+                    <p id="instruction">Klik kotak atau tombol retake untuk memilih slot.</p>
+                </div>
+            </div>
+
+            <div class="strip-preview-container">
+                <div class="photo-grid" id="photoGrid">
+                    <div class="photo-slot" onclick="selectSlot(0)"><span class="number">1</span><button class="retake-btn"><i class="fas fa-sync-alt"></i></button></div>
+                    <div class="photo-slot" onclick="selectSlot(1)"><span class="number">2</span><button class="retake-btn"><i class="fas fa-sync-alt"></i></button></div>
+                    <div class="photo-slot" onclick="selectSlot(2)"><span class="number">3</span><button class="retake-btn"><i class="fas fa-sync-alt"></i></button></div>
+                    <div class="photo-slot" onclick="selectSlot(3)"><span class="number">4</span><button class="retake-btn"><i class="fas fa-sync-alt"></i></button></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="frame-selection-section">
+            <h3>PILIH TATA LETAK</h3>
+            <div class="frame-options">
+                <div class="frame-option active" onclick="setFrameStyle('classic8')">
+                    <div class="icon-frame frame-classic"></div>
+                    <span>Double Strip (8 Foto)</span>
+                </div>
+                <div class="frame-option" onclick="setFrameStyle('grid4')">
+                    <div class="icon-frame frame-grid"></div>
+                    <span>Elegant Grid (4 Foto)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="processBtn" class="btn btn-process" disabled>
+                <i class="fas fa-magic"></i> LIHAT HASIL
+            </button>
+        </div>
+    </div>
+
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>PREVIEW HASIL</h2>
+            
+            <div class="result-container">
+                <img id="resultImage" src="" alt="Result">
+            </div>
+
+            <div class="modal-actions">
+                <button id="downloadBtn" class="btn btn-secondary"><i class="fas fa-download"></i> SIMPAN GAMBAR</button>
+                <button id="shareBtn" class="btn btn-accent"><i class="fas fa-share-alt"></i> SHARE</button>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="finalCanvas" style="display:none;"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>

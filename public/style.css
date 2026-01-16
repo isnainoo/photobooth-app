@@ -1,0 +1,361 @@
+/* =====================================================
+   IMPORT FONT
+   ===================================================== */
+/*
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+*/
+
+/* =====================================================
+   ROOT VARIABLES
+   ===================================================== */
+:root {
+    --bg-color: #050505;
+    --primary-red: #8b0000;
+    --accent-red: #c90000;
+    --text-color: #ffffff;
+    --slot-bg: #1a1a1a;
+    --modal-bg: rgba(0, 0, 0, 0.95);
+}
+
+/* =====================================================
+   GLOBAL
+   ===================================================== */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding-bottom: 50px;
+}
+
+.container {
+    text-align: center;
+    width: 95%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 6px;
+    border-bottom: 2px solid var(--primary-red);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* =====================================================
+   MAIN LAYOUT
+   ===================================================== */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* =====================================================
+   CAMERA
+   ===================================================== */
+.camera-section {
+    flex: 2;
+    min-width: 300px;
+}
+
+video {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid var(--primary-red);
+    transform: scaleX(-1);
+    background: #000;
+}
+
+/* =====================================================
+   STRIP PREVIEW
+   ===================================================== */
+.strip-preview-container {
+    flex: 1;
+    max-width: 250px;
+    min-width: 200px;
+}
+
+.photo-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* =====================================================
+   PHOTO SLOT
+   ===================================================== */
+.photo-slot {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: var(--slot-bg);
+    border: 2px dashed #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.photo-slot.active {
+    border: 2px solid var(--accent-red);
+    box-shadow: 0 0 15px rgba(201, 0, 0, 0.4);
+}
+
+.photo-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-slot .number {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+/* =====================================================
+   RETAKE BUTTON
+   ===================================================== */
+.retake-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 1px solid var(--primary-red);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    z-index: 10;
+}
+
+.retake-btn:hover {
+    background: var(--primary-red);
+}
+
+.photo-slot:hover .retake-btn {
+    display: flex;
+}
+
+.photo-slot.has-image .retake-btn {
+    display: flex;
+    opacity: 0.85;
+}
+
+/* =====================================================
+   FRAME SELECTION
+   ===================================================== */
+.frame-selection-section {
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+.frame-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.frame-option {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.frame-option:hover,
+.frame-option.active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.frame-option span {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* =====================================================
+   FRAME ICONS
+   ===================================================== */
+.icon-frame {
+    border: 2px solid #aaa;
+    background: #222;
+    margin: 0 auto 5px;
+}
+
+.frame-classic {
+    width: 30px;
+    height: 40px;
+    border-right: 1px solid #aaa;
+    box-shadow: 5px 0 0 #222, 7px 0 0 #aaa;
+}
+
+.frame-grid {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #aaa;
+}
+
+.frame-grid::before,
+.frame-grid::after {
+    content: '';
+    background: #222;
+}
+
+.frame-film {
+    width: 30px;
+    height: 40px;
+    background: repeating-linear-gradient(#222 0 15px, #aaa 15px 17px);
+}
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+.btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 5px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--primary-red);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--accent-red);
+}
+
+.btn-secondary {
+    background: white;
+    color: black;
+}
+
+.btn-accent {
+    background: #25D366;
+    color: white;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Tombol utama */
+.btn-process {
+    background: linear-gradient(45deg, var(--primary-red), #500000);
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
+}
+
+.btn-process:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(139, 0, 0, 0.6);
+}
+
+/* =====================================================
+   MODAL POPUP (FIX SCROLL FINAL)
+   ===================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: var(--modal-bg);
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 50px;
+}
+
+.modal-content {
+    background: transparent;
+    margin: 40px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content h2 {
+    color: var(--text-color);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.close-modal {
+    position: absolute;
+    right: 0;
+    top: -30px;
+    font-size: 35px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--accent-red);
+    transform: rotate(90deg);
+}
+
+.result-container {
+    background: #111;
+    padding: 10px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    margin-bottom: 30px;
+}
+
+#resultImage {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+
+.modal.show {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
