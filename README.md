@@ -4,7 +4,7 @@ Aplikasi Photobooth berbasis web yang terinspirasi oleh tren *Korean Self-Photo 
 
 Aplikasi ini berjalan di browser dan memungkinkan pengguna mengambil foto, memilih layout, memberikan efek filter *film grain*, dan mengunduh hasilnya secara instan.
 
-![Project Preview](https://github.com/isnainoo/photobooth-app/blob/main/photobooth-1768536614171.)
+![Project Preview](https://github.com/isnainoo/photobooth-app/blob/main/photobooth-1768536614171.jpg)
 
 ## ✨ Fitur Utama
 
